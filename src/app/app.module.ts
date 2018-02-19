@@ -10,6 +10,19 @@ import {AssetService} from '../services/asset.service';
 import {AssetDetailPage} from './dashboard/asset-detail.page';
 import {DashboardPage} from './dashboard/dashboard.page';
 import {AssetCreatorDialog} from './dashboard/asset-creator.dialog';
+import {AcademicService} from '../services/Academic.services';
+import {TestPage} from './dashboard/test.page';
+import {StudentDetailPage} from './dashboard/student-detail.page';
+import {AlbumService} from '../services/album.service';
+import {AlbumListPage} from './dashboard/album-list.page';
+import {AlbumDetailPage} from './dashboard/album.detail.page';
+import {studentCreatorDialog} from './dashboard/student-creator.dialog';
+import {AngularFireModule} from 'angularfire2';
+import {environment} from '../environments/environment';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {AngularFirestoreModule} from 'angularfire2/firestore';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+import {StudentTypePipe} from './dashboard/student-type.pipe';
 
 @NgModule({
   declarations: [
@@ -18,6 +31,13 @@ import {AssetCreatorDialog} from './dashboard/asset-creator.dialog';
     AssetDetailPage,
     AssetCreatorDialog,
     MainLayout,
+    TestPage,
+    StudentDetailPage,
+    // AlbumListPage,
+    // AlbumDetailPage,
+    studentCreatorDialog,
+    StudentTypePipe,
+
   ],
   imports: [
     AppRoutingModule,
@@ -25,9 +45,14 @@ import {AssetCreatorDialog} from './dashboard/asset-creator.dialog';
     BrowserAnimationsModule,
     SharedModule,
     HttpClientModule,
+    AngularFireModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+
+
   ],
-  providers: [AssetService],
-  entryComponents: [AssetCreatorDialog],
+  providers: [AssetService, AcademicService,AlbumService],
+  entryComponents: [AssetCreatorDialog,studentCreatorDialog],
   bootstrap: [AppComponent],
 })
 export class AppModule {

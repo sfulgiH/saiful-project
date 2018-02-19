@@ -3,9 +3,10 @@ import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {
+  MatAccordion,
   MatButtonModule,
   MatCardModule,
-  MatCheckboxModule,
+  MatCheckboxModule, MatExpansionModule,
   MatIconModule,
   MatInputModule,
   MatListModule,
@@ -46,7 +47,7 @@ const MATERIAL_MODULES: any[] = [
   MatListModule, MatMenuModule, MatTooltipModule,
   MatSlideToggleModule, MatInputModule, MatCheckboxModule,
   MatToolbarModule, MatSnackBarModule, MatSidenavModule,
-  MatTabsModule, MatSelectModule, MatTableModule,
+  MatTabsModule, MatSelectModule, MatTableModule,MatExpansionModule,
 ];
 
 const COVALENT_MODULES: any[] = [

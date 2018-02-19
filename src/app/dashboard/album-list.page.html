@@ -19,13 +19,13 @@
           <mat-card-subtitle>List of assets</mat-card-subtitle>
           <mat-divider></mat-divider>
           <mat-list>
-            <ng-template let-student let-last="last" ngFor [ngForOf]="students$ | async">
+            <ng-template let-album let-last="last" ngFor [ngForOf]="album$ | async">
               <mat-list-item>
-                <h3 mat-line> {{student?.name}} </h3>
+                <h3 mat-line> {{album?.id}} </h3>
                 <span flex></span>
                 <span flex="80" layout-gt-xs="row">
-                  <div class="mat-caption tc-grey-700" flex-gt-xs="30"> {{ student?.matricNumber }} </div>
-                  <div class="mat-caption tc-grey-700" flex-gt-xs="50"> {{ asset?.registeredDate | date:'shortDate' }} </div>
+                  <div class="mat-caption tc-grey-700" flex-gt-xs="30"> {{ album?.userId }} </div>
+                  <div class="mat-caption tc-grey-700" flex-gt-xs="50"> {{ album?.title }} </div>
                 </span>
                 <span>
                   <!--button-->

@@ -8,7 +8,7 @@ import {HttpClient, HttpResponse} from '@angular/common/http';
 @Injectable()
 export class AssetService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient){
     // no op
   }
 
@@ -18,5 +18,9 @@ export class AssetService {
 
   findAssetByAssetNo(assetNo: string): Observable<Asset> {
     return this.http.get(environment.endpoint + '/asset.json').map(res => <Asset>res);
+  }
+
+  findStudentByAssetNo(assetNo: string) {
+    
   }
 }

@@ -7,11 +7,11 @@ export const environment: { production: boolean, endpoint: string; firebaseConfi
   production: false,
   endpoint: '/data',
   firebaseConfig: {
-    apiKey: 'AIzaSyCj_F5O6tboRNQTvgkLfo10LFPzoahWPag',
-    authDomain: 'kahwin2-6ca62.firebaseapp.com',
-    databaseURL: 'https://kahwin2-6ca62.firebaseio.com',
-    projectId: 'kahwin2-6ca62',
-    storageBucket: 'kahwin2-6ca62.appspot.com',
-    messagingSenderId: '542374893569',
+    apiKey: "AIzaSyDQLAt9_pxbsd6nHr6F-KuTEGQJmMVUk0M",
+    authDomain: "saiful-1a525.firebaseapp.com",
+    databaseURL: "https://saiful-1a525.firebaseio.com",
+    projectId: "saiful-1a525",
+    storageBucket: "saiful-1a525.appspot.com",
+    messagingSenderId: "150700498743"
   },
 };

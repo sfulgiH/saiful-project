@@ -1,0 +1,28 @@
+<td-layout-nav>
+  <button mat-icon-button td-menu-button tdLayoutToggle>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div td-toolbar-content layout="row" layout-align="center center" flex>
+    <span>Student Management System</span>
+    <span flex></span>
+    <a mat-icon-button matTooltip="Profile">
+      <mat-icon>person</mat-icon>
+    </a>
+    <span>Johari Jantan</span>
+     </div>
+  <p>HELLO WORLD</p>
+
+  <mat-list>
+    <ng-template let-student ngFor [ngForOf]="students$ | async">
+      <mat-list-item>
+        <h3 mat-line> {{student?.matricNumber}} </h3>
+        <span flex></span>
+        <span flex="80">
+       <div> {{ student?.name }} </div>
+     </span>
+      </mat-list-item>
+    </ng-template>
+
+  </mat-list>
+</td-layout-nav>
+

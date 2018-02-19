@@ -1,0 +1,25 @@
+[
+  {
+    "matricNumber": "A0801",
+    "name": "saiful",
+    "address": "FloraDamansara",
+    "contactNumber": "01113099901",
+    "emailAddress": "saifulsa@gmail.com",
+    "course": "FITMC",
+    "levelofStudy": "5",
+    "icNumber": "700307045017",
+    "studentType":"PART_TIME"
+  }
+  ,
+  {
+    "matricNumber": "A0802",
+    "name": "Sarwan",
+    "address": "PahangDarulmakmur",
+    "contactNumber": "01223689573",
+    "emailAddress": "sarwan8@gmail.com",
+    "course": "FMSI",
+    "levelofStudy": "4",
+    "icNumber": "1234567891011",
+    "studentType":"FULL_TIME"
+  }
+]

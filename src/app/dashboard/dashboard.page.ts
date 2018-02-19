@@ -1,22 +1,26 @@
-import {Component, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
+import {Component, DoCheck, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
 import { Asset } from './asset.interface';
 import { Observable } from 'rxjs/Observable';
 import { AssetService } from '../../services/asset.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import {MatDialog, MatDialogConfig, MatDialogRef} from '@angular/material';
 import {AssetCreatorDialog} from './asset-creator.dialog';
+import {AcademicService} from '../../services/Academic.services';
+import {Student} from './student.interface';
 
 @Component({
   selector: 'qs-dashboard',
   templateUrl: './dashboard.page.html',
 })
 export class DashboardPage implements OnInit, OnDestroy {
-
   assets$: Observable<Asset[]>;
+  students$: Observable<Student[]>;
+
   creatorDialogRef: MatDialogRef<AssetCreatorDialog>;
 
   // constructor
   constructor(private assetService: AssetService,
+              private academicService:AcademicService,
               private router: Router,
               private route: ActivatedRoute,
               private vcf: ViewContainerRef,
@@ -26,21 +30,25 @@ export class DashboardPage implements OnInit, OnDestroy {
 
   loadPosts(): void {
     this.assets$ = this.assetService.findAssets();
+    this.students$ = this.academicService.findStudents();
   }
 
-  viewAsset(asset: Asset): void {
+  viewAsset(asset: Student): void {
     console.log(JSON.stringify(asset));
-    this.router.navigate(['/detail', asset.assetNo]);
+    this.router.navigate(['/student-detail', asset.matricNumber]);
   }
 
   ngOnInit(): void {
+    console.log('oninit');
     this.loadPosts();
   }
 
   ngOnDestroy(): void {
-    // no op
+    console.log('ondestroy');
   }
-
+  ngDoCheck(): void {
+    console.log('Docheck');
+  }
   showAddDialog(): void {
     console.log('showContainerDialog');
     let config: MatDialogConfig = new MatDialogConfig();

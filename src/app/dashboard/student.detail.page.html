@@ -1,0 +1,108 @@
+<td-layout-nav title="Asset Management System" navigationRoute="/">
+  <button mat-icon-button td-menu-button tdLayoutToggle>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div td-toolbar-content layout="row" layout-align="center center" flex>
+    <span>Asset Management System</span>
+    <span flex></span>
+    <a mat-icon-button matTooltip="Profile">
+      <mat-icon>person</mat-icon>
+    </a>
+    <span>Johari Jantan</span>
+  </div>
+  <td-layout-card-over>
+    <mat-tab-group>
+      <mat-tab label="sentuh 1">Content 1</mat-tab>
+      <mat-tab label="sentuh 2">Content 2</mat-tab>
+      <mat-tab label="student1">
+        <h1>Student List</h1>
+        <p>...</p>
+      </mat-tab>
+      <mat-tab label="student2">
+        <h1>Some more tab content</h1>
+        <p>...</p>
+
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Personal data
+              </mat-panel-title>
+              <mat-panel-description>
+                Type your name and age
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <mat-form-field>
+              <input matInput placeholder="First name">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Age">
+            </mat-form-field>
+          </mat-expansion-panel>
+          <mat-expansion-panel (opened)="panelOpenState = true"
+                               (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Self aware panel
+              </mat-panel-title>
+              <mat-panel-description>
+                Currently I am {{panelOpenState ? 'open' : 'closed'}}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>I'm visible because I am open</p>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </mat-tab>
+
+    </mat-tab-group>
+
+    <div layout="row" layout-align="start center">
+      <div>
+        <mat-card-title>Asset {{(student$|async)?.matricNumber}}</mat-card-title>
+        <mat-card-subtitle>Asset Detail</mat-card-subtitle>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+
+    <div layout="column" class="inset" flex>
+
+      <!--asset information-->
+      <h3 mat-line>Asset Information</h3>
+      <div layout="row" class="mat-padding" flex>
+        <div layout="column" flex="30">
+          <p class="tc-grey-500">Asset No :</p>
+          <p class="tc-grey-500">Description :</p>
+        </div>
+        <div layout="column" flex="70">
+          <p>{{(student$|async)?.matricNumber}}</p>
+          <p>{{(student$|async)?.name}}</p>
+        </div>
+      </div>
+    </div>
+
+    <mat-card-actions align="end">
+      <button mat-button="" color="primary" (click)="goBack()">Back</button>
+    </mat-card-actions>
+  </td-layout-card-over>
+  <h3 mat-line>Student Information</h3>
+  <div layout="row" class="mat-padding" flex>
+    <div layout="column" flex="30">
+      <p class="tc-grey-500">Student No :</p>
+      <p class="tc-grey-500">Description :</p>
+    </div>
+    <div layout="column" flex="70">
+      <p>{{(student$|async)?.studentNo}}</p>
+      <p>{{(student$|async)?.studentType|studentTypePipe }}</p>
+    </div>
+  </div>
+
+
+  <td-layout-footer>
+    <div layout="row" layout-align="start center">
+      <span class="mat-caption">Copyright &copy; 2017 Terang LLP. All rights reserved</span>
+      <span flex></span>
+    </div>
+  </td-layout-footer>
+</td-layout-nav>
